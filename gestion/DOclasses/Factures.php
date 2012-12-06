@@ -76,9 +76,34 @@ class DataObjects_Factures extends DB_DataObject_Pluggable
     }
     public function getBatchMethods()
     {
-      return array('somme'=>array('title'=>'somme'),
-      'export'=>array('title'=>'export fichiers')
+      return array(
+        'somme'       => array('title'=>'somme'),
+        'export'      => array('title'=>'export fichiers'),
+        'sendByEmail' => array('title' => 'Envoyer par email'),
       );
+    }
+    public function prepareSendByMail($form)
+    {
+      $form->addElement('text',     'subject','Titre du mail');
+      $form->addElement('textarea', 'body',   'Corps du mail');
+      $form->setDefaults(array('subject' => Config::getPref('default_mail_subject'), 'body' => Config::getPref('default_mail_body')));
+
+    }
+    public function sendByMail($values)
+    {
+      while($this->fetch()) {
+        $this->getPdf()->write(TMP_PATH.'/'.$this->ref.'.pdf');
+        $tosend[$this->client_id][] = TMP_PATH.'/'.$this->ref.'.pdf';
+      }
+      foreach($tosend as $client_id => $files) {
+        $client = DB_DataObject::factory('clients');
+        $client->get($client_id);
+        $m = Mail::factory('vide');
+        $m->setVars(array('subject' => $values['subject'],'body' => $values['body']));
+        $m->addAttachments($files);
+        $m->sendTo($client->email);
+        $this->say(count($files).' fichier(s) envoyé(s) à '.$client->email);
+      }
     }
     public function exportfichiers()
     {

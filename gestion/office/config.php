@@ -10,7 +10,7 @@ $dispatchopt['all']['modulepath'][]='M/Office/modules/';
 Mtpl::addJS('jquery');
 
 define('SIZE_SPACING_FONT',	5);
-Mreg::append('autoload', 
+Mreg::append('autoload',
     array('MyAuthHelper'=>'lib/MyAuthHelper.php',
           'CRMExchange'=>'lib/CRMExchange.php',
           'FPDF'=>'lib/fpdf/fpdf.php',
@@ -40,46 +40,49 @@ $frontEndOptions = array(
                 'factures'=>array(
                   'type'=>'db',
                   'title'=>'Factures',
-                  'table'=>'factures'),  
+                  'table'=>'factures'),
                 'depenses'=>array(
                   'type'=>'db',
                   'title'=>'Dépenses',
-                  'table'=>'depenses'),  
+                  'table'=>'depenses'),
                 'depenses_cat'=>array(
                   'type'=>'db',
                   'title'=>'Cat dépenses',
-                  'table'=>'depenses_cat'),  
+                  'table'=>'depenses_cat'),
                 'deplacement'=>array(
                   'type'=>'db',
                   'title'=>'Déplacements',
-                  'table'=>'deplacement'),  
+                  'table'=>'deplacement'),
                 'preferences'=>array(
                   'type'=>'dyn',
                   'title'=>'Préférences')
                   ),
                 );
-                
+
 $frontEndHomeOptions =& PEAR::getStaticProperty('m_office_frontendhome', 'options');
 $frontEndHomeOptions = array('searchInTables'=>array('clients','factures'),
 								'quickView'=>array(
 									'factures'=>array('limit'=>20)
 									)
 									);
-                $chooseTableOptions =& PEAR::getStaticProperty('m_office_choosetable', 'options');
-                $chooseTableOptions = array('modulesToList'=>array(
-                                              'clients',
-                                              'factures',
-                                              'depenses',
-/*                                              'deplacement',                                              */
-                                              array('preferences','depenses_cat')
-                                              ),
-                							'chooseTableTitle'=>"facturation demental.info");
-$showTableOptions =& PEAR::getStaticProperty('m_office_showtable', 'options');
+$chooseTableOptions =& PEAR::getStaticProperty('m_office_choosetable', 'options');
+$chooseTableOptions = array('modulesToList'=>array(
+                              'clients',
+                              'factures',
+                              'depenses',
+                              array('preferences','depenses_cat')
+                              ),
+                              'chooseTableTitle'=>"facturation Tau");
+$showTableOptions = & PEAR::getStaticProperty('m_office_showtable', 'options');
 $showTableOptions = array(
-  'tableOptions'=>array(
-    'factures'=>array('recordsPerPage'=>100,
-        'fields'=>array('id','client_id','date','designation','ratio_tva','montant','paye')
+  'tableOptions' => array(
+    'factures' => array(
+      'recordsPerPage' => 100,
+      'fields' => array('id','client_id','date','designation','ratio_tva','montant','paye')
     ),
-
+    'clients' => array(
+      'recordsPerPage' => 100,
+      'search' => false
     )
-  );             							
+    )
+  );
