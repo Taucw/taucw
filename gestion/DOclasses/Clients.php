@@ -81,6 +81,7 @@ class DataObjects_Clients extends DB_DataObject_Pluggable
     public function prepareBatchCreateFactures($form)
     {
       $f = DB_DataObject::factory('factures');
+      $f->fb_fieldsToRender = array('date','designation','ratio_tva','montant','paye');
       $fb = MyFB::create($f);
       $fb->useForm($form);
       $fb->createSubmit = $fb->addFormHeader = false;
