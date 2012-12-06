@@ -94,7 +94,7 @@ class DataObjects_Clients extends DB_DataObject_Pluggable
         $f->setFrom($values);
         $f->client_id = $this->id;
         $f->insert();
-        $this->say('Facture <a href="'.M_Office::URL(array('module'=>'factures','record'=>$f->id)).'">F</a>'.$f->id.' créée pour '.$this->__toString());
+        $this->say('Facture <a href="'.M_Office::URL(array('module'=>'factures','record'=>$f->id)).'">F'.$f->id.'</a> créée pour '.$this->__toString());
       }
     }
     public function __toString()
