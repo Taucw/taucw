@@ -90,11 +90,11 @@ class DataObjects_Clients extends DB_DataObject_Pluggable
     public function batchCreateFactures($values)
     {
       while($this->fetch()) {
-        $f = DB_DataObject::factory('facture');
+        $f = DB_DataObject::factory('factures');
         $f->setFrom($values);
         $f->client_id = $this->id;
         $f->insert();
-        $this->say('Facture <a href="'.M_Office::URL(array('module'=>'facture','record'=>$f->id)).'">F</a>'.$f->id.' créée pour '.$this->__toString());
+        $this->say('Facture <a href="'.M_Office::URL(array('module'=>'factures','record'=>$f->id)).'">F</a>'.$f->id.' créée pour '.$this->__toString());
       }
     }
     public function __toString()
