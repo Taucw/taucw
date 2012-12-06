@@ -76,7 +76,7 @@ class DataObjects_Clients extends DB_DataObject_Pluggable
     }
     public function getBatchMethods()
     {
-      return array('BatchCreateFacture' => array('title' => 'Créer des factures'));
+      return array('BatchCreateFactures' => array('title' => 'Créer des factures'));
     }
     public function prepareBatchCreateFactures($form)
     {
