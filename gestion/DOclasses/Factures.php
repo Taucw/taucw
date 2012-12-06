@@ -100,7 +100,9 @@ class DataObjects_Factures extends DB_DataObject_Pluggable
         $client->get($client_id);
         $m = Mail::factory('vide');
         $m->setVars(array('subject' => $values['subject'],'body' => $values['body']));
-        $m->addAttachments($files);
+        foreach($files as $file) {
+          $m->addFile($file);
+        }
         $m->sendTo($client->email);
         $this->say(count($files).' fichier(s) envoyé(s) à '.$client->email);
       }
