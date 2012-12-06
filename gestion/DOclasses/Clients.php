@@ -80,7 +80,7 @@ class DataObjects_Clients extends DB_DataObject_Pluggable
     }
     public function prepareBatchCreateFactures($form)
     {
-      $f = DB_DataObject::factory('facture');
+      $f = DB_DataObject::factory('factures');
       $fb = MyFB::create($f);
       $fb->useForm($form);
       $fb->createSubmit = $fb->addFormHeader = false;
