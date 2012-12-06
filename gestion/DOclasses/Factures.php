@@ -94,7 +94,7 @@ class DataObjects_Factures extends DB_DataObject_Pluggable
       while($this->fetch()) {
         $file = '/tmp/F'.$this->id.'_tau.pdf';
         $this->getPdf()->write($file);
-        $tosend[$this->client_id][] = $file
+        $tosend[$this->client_id][] = $file;
       }
       foreach($tosend as $client_id => $files) {
         $client = DB_DataObject::factory('clients');
