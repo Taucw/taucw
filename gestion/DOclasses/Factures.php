@@ -84,8 +84,8 @@ class DataObjects_Factures extends DB_DataObject_Pluggable
     }
     public function prepareSendByMail($form)
     {
-      $form->addElement('text',     'subject','Titre du mail');
-      $form->addElement('textarea', 'body',   'Corps du mail');
+      $form->addElement('text',     'subject','Titre du mail', array('size=80'));
+      $form->addElement('textarea', 'body',   'Corps du mail', array('rows="5" cols=80'));
       $form->setDefaults(array('subject' => Config::getPref('default_mail_subject'), 'body' => Config::getPref('default_mail_body')));
 
     }
