@@ -92,8 +92,9 @@ class DataObjects_Factures extends DB_DataObject_Pluggable
     public function sendByMail($values)
     {
       while($this->fetch()) {
-        $this->getPdf()->write('/tmp/'.$this->ref.'.pdf');
-        $tosend[$this->client_id][] = '/tmp/F'.$this->id.'_tau.pdf';
+        $file = '/tmp/F'.$this->id.'_tau.pdf';
+        $this->getPdf()->write($file);
+        $tosend[$this->client_id][] = $file
       }
       foreach($tosend as $client_id => $files) {
         $client = DB_DataObject::factory('clients');
