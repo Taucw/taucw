@@ -79,7 +79,7 @@ class DataObjects_Factures extends DB_DataObject_Pluggable
       return array(
         'somme'       => array('title'=>'somme'),
         'export'      => array('title'=>'export fichiers'),
-        'sendByEmail' => array('title' => 'Envoyer par email'),
+        'sendByMail' => array('title' => 'Envoyer par email'),
       );
     }
     public function prepareSendByMail($form)
