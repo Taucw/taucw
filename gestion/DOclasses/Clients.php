@@ -81,17 +81,21 @@ class DataObjects_Clients extends DB_DataObject_Pluggable
     public function prepareBatchCreateFactures($form)
     {
       $f = DB_DataObject::factory('factures');
+      $f->date = date('Y-m-d');
       $f->fb_fieldsToRender = array('date','designation','ratio_tva','montant','paye');
       $fb = MyFB::create($f);
       $fb->useForm($form);
+
       $fb->createSubmit = $fb->addFormHeader = false;
       $fb->getForm();
+
     }
     public function batchCreateFactures($values)
     {
       while($this->fetch()) {
         $f = DB_DataObject::factory('factures');
         $f->setFrom($values);
+        $f->date = date('Y-m-d',strtotime($values['date']['Y'].'-'.$values['date']['m'].'-'.$values['date']['d']));
         $f->client_id = $this->id;
         $f->insert();
         $this->say('Facture <a href="'.M_Office::URL(array('module'=>'factures','record'=>$f->id)).'">F'.$f->id.'</a> créée pour '.$this->__toString());
