@@ -4,5 +4,5 @@
 
 ==========================================================
 Ce message est envoyé automatiquement par l'outil de gestion Tau.
-Si t'es pas content, adressez-toi au président :)
+Si y'a un truc qui colle pas adressez-toi au président :)
 ==========================================================
