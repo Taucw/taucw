@@ -125,6 +125,13 @@ class DataObjects_Factures extends DB_DataObject_Pluggable
         $this->getPdf()->write($dest);
       }
     }
+      public function preGenerateForm($fb)
+  {
+    if(empty($this->id)) {
+      $this->date = date('Y-m-d');
+    }
+  }
+
     public function prepareSearchForm($form)
     {
       $this->fb_fieldsToRender = array('client_id','paye');

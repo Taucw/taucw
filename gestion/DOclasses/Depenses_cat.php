@@ -4,7 +4,7 @@
  */
 require_once 'M/DB/DataObject/Pluggable.php';
 
-class DataObjects_Depenses_cat extends DB_DataObject_Pluggable 
+class DataObjects_Depenses_cat extends DB_DataObject_Pluggable
 {
     ###START_AUTOCODE
     /* the code below is auto generated do not remove the above tag */
@@ -13,7 +13,7 @@ class DataObjects_Depenses_cat extends DB_DataObject_Pluggable
     public $id;                              // int(4)  primary_key not_null unsigned
     public $nom;                             // varchar(150)   not_null
     public $ratio_tva;                       // float   not_null
-    public $compte;                          // varchar(30)  
+    public $compte;                          // varchar(30)
 
     /* Static get */
     function staticGet($k,$v=NULL) { return DB_DataObject::staticGet('DataObjects_Depenses_cat',$k,$v); }
@@ -38,14 +38,14 @@ class DataObjects_Depenses_cat extends DB_DataObject_Pluggable
          return array('id', true, false);
     }
 
-    function defaults() // column default values 
+    function defaults() // column default values
     {
          return array(
              '' => null,
          );
     }
 
-        
+
     function links() {
         // links generated from .links.ini file
         return array(
@@ -63,6 +63,7 @@ class DataObjects_Depenses_cat extends DB_DataObject_Pluggable
     ###END_AUTOCODE
     public function __toString()
     {
-      return $this->nom; 
+      return $this->nom;
     }
+
 }
