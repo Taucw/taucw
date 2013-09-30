@@ -1,0 +1,12 @@
+fr:
+  modules:
+    clients:
+      frontname: Clients
+    factures:
+      frontname: Factures
+    depenses:
+      frontname: Dépenses
+    preferences:
+      frontname: Préférences
+    depenses_cat:
+      frontname: Cat dépenses
