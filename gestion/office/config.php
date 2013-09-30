@@ -78,11 +78,18 @@ $showTableOptions = array(
   'tableOptions' => array(
     'factures' => array(
       'recordsPerPage' => 100,
-      'fields' => array('id','client_id','date','designation','ratio_tva','montant','paye')
+      'fields' => array('id','client_id','date','designation','ratio_tva','montant','paye'),
+      'columns' => array('id','client_id','date','designation','ratio_tva','montant','paye')
     ),
     'clients' => array(
       'recordsPerPage' => 100,
-      'search' => false
+      'search' => false,
+      'columns' => array('ref','intitule','email'),
+      'fields' => array('id','ref','intitule','email')
+    ),
+    'depenses' => array(
+      'columns' => array('client_id','date','designation','montant','date_rbt','mode_rbt'),
+      'fields' => array('client_id','date','designation','montant','date_rbt','mode_rbt')
     )
     )
   );
