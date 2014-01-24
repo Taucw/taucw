@@ -134,8 +134,9 @@ class DataObjects_Factures extends DB_DataObject_Pluggable
 
     public function prepareSearchForm($form)
     {
-      $this->fb_fieldsToRender = array('client_id','paye');
+      $this->fb_fieldsToRender = array('client_id','paye','date');
       $this->fb_preDefElements['paye'] = HTML_QuickForm::createElement('select','paye','Payé?',array(''=>'','o'=>'OUI','n'=>'NON'));
+
     }
     public function frontEndSearch($values)
     {
