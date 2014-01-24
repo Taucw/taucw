@@ -140,11 +140,8 @@ class DataObjects_Factures extends DB_DataObject_Pluggable
     }
     public function frontEndSearch($values)
     {
-      if($values['date']['Y'] && $values['date']['M']) {
-        $this->whereAdd('date_format(date,"%Y%m")='.$values['date']['Y'].$values['date']['M']);
-      } elseif($values['date']['Y']) {
-        $this->whereAdd('date_format(date,"%Y")='.$values['date']['Y']);
-      }
+      $search = new M_Office_Search($this, $values);
+      $search->filterDate('date');
       switch($values['paye']) {
         case 'o':$this->whereAdd('paye=1');break;
         case 'n':$this->whereAdd('paye=0');break;
