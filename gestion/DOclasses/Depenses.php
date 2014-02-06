@@ -2,9 +2,9 @@
 /**
  * Table Definition for depenses
  */
-require_once 'M/DB/DataObject/Pluggable.php';
 
-class DataObjects_Depenses extends DB_DataObject_Pluggable 
+
+class DataObjects_Depenses extends DB_DataObject_Pluggable
 {
     ###START_AUTOCODE
     /* the code below is auto generated do not remove the above tag */
@@ -16,9 +16,9 @@ class DataObjects_Depenses extends DB_DataObject_Pluggable
     public $date;                            // date   not_null
     public $montant;                         // float   not_null
     public $filename;                        // varchar(250)   not_null
-    public $client_id;                       // int(4)  
-    public $date_rbt;                        // date  
-    public $mode_rbt;                        // varchar(15)  
+    public $client_id;                       // int(4)
+    public $date_rbt;                        // date
+    public $mode_rbt;                        // varchar(15)
 
     /* Static get */
     function staticGet($k,$v=NULL) { return DB_DataObject::staticGet('DataObjects_Depenses',$k,$v); }
@@ -48,14 +48,14 @@ class DataObjects_Depenses extends DB_DataObject_Pluggable
          return array('id', true, false);
     }
 
-    function defaults() // column default values 
+    function defaults() // column default values
     {
          return array(
              '' => null,
          );
     }
 
-        
+
     function links() {
         // links generated from .links.ini file
         return array(
@@ -72,10 +72,10 @@ class DataObjects_Depenses extends DB_DataObject_Pluggable
     }
     /* the code above is auto generated do not remove the tag below */
     ###END_AUTOCODE
-    
+
     public $fb_FieldsToRender = array('client_id'=>'Avancé par','date_rbt'=>'Remboursé','mode_rbt'=>'Type de remboursement');
     public $fb_linkOrderFields = array('date DESC');
-        
+
     public function _getPluginsDef()
     {
       return array('upload'=>array('filename'=>array('path'=>'')));
@@ -117,5 +117,5 @@ class DataObjects_Depenses extends DB_DataObject_Pluggable
     {
       $this->serve('filename',date('ymd',strtotime($this->date)).Strings::stripify($this->titre).'.'.FileUtils::getFileExtension($this->filename));
     }
-    
+
 }

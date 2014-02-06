@@ -3,7 +3,7 @@
  * Table Definition for preferences
  */
 
-class DataObjects_Preferences extends DB_DataObject_Pluggable 
+class DataObjects_Preferences extends DB_DataObject_Pluggable
 {
     ###START_AUTOCODE
     /* the code below is auto generated do not remove the above tag */
@@ -11,10 +11,10 @@ class DataObjects_Preferences extends DB_DataObject_Pluggable
     public $__table = 'preferences';         // table name
     public $id;                              // int(4)  primary_key not_null unsigned
     public $var;                             // varchar(50)   not_null
-    public $description;                     // mediumtext  
-    public $val;                             // text  
+    public $description;                     // mediumtext
+    public $val;                             // text
     public $type;                            // varchar(30)   not_null
-    public $typeargs;                        // mediumtext  
+    public $typeargs;                        // mediumtext
 
     /* Static get */
     function staticGet($k,$v=NULL) { return DB_DataObject::staticGet('DataObjects_Preferences',$k,$v); }
@@ -41,14 +41,14 @@ class DataObjects_Preferences extends DB_DataObject_Pluggable
          return array('id', true, false);
     }
 
-    function defaults() // column default values 
+    function defaults() // column default values
     {
          return array(
              '' => null,
          );
     }
 
-        
+
     function links() {
         // links generated from .links.ini file
         return array(
@@ -94,11 +94,11 @@ class DataObjects_Preferences extends DB_DataObject_Pluggable
           break;
           case 'bool':
           $this->fb_preDefElements['val'] = & HTML_QuickForm::createElement('checkbox',$this->fb_elementNamePrefix.'val',$this->fb_fieldLabels['val']['help']);
-          break;          
+          break;
           case 'string':
           $this->fb_preDefElements['val'] = & HTML_QuickForm::createElement('text',$this->fb_elementNamePrefix.'val',$this->fb_fieldLabels['val'],array('size="50"'));
           break;
-        default: 
+        default:
           $this->fb_fieldAttributes['val'] = array('rows="5" cols="50"');
           break;
       }
@@ -111,7 +111,7 @@ class DataObjects_Preferences extends DB_DataObject_Pluggable
       }
       parent::preProcessForm($values,$fb);
     }
-    
+
     function find($autoFetch=false,$final=false) {
       if($final) {
         if(parent::find()) {
@@ -125,9 +125,9 @@ class DataObjects_Preferences extends DB_DataObject_Pluggable
         if($autoFetch) {
           $this->fetch();
         }
-                    
+
         return true;
-        
+
       }
     }
     function fetch() {
@@ -136,7 +136,7 @@ class DataObjects_Preferences extends DB_DataObject_Pluggable
               case 'international':
                   $this->internationalFields=array('val');
                   $this->loadPlugin('international');
-              		if(T::getLang()!=Config::get('defaultLang')){		
+              		if(T::getLang()!=Config::get('defaultLang')){
               			$this->getPlugin('international')->getTranslations($this);
               		}
               break;

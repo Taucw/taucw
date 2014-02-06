@@ -2,7 +2,7 @@
 /**
  * Table Definition for clients
  */
-require_once 'M/DB/DataObject/Pluggable.php';
+
 
 class DataObjects_Clients extends DB_DataObject_Pluggable
 {

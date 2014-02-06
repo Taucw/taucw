@@ -2,7 +2,7 @@
 /**
  * Table Definition for factures
  */
-require_once 'M/DB/DataObject/Pluggable.php';
+
 
 class DataObjects_Factures extends DB_DataObject_Pluggable
 {

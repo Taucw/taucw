@@ -2,7 +2,7 @@
 /**
  * Table Definition for depenses_cat
  */
-require_once 'M/DB/DataObject/Pluggable.php';
+
 
 class DataObjects_Depenses_cat extends DB_DataObject_Pluggable
 {
