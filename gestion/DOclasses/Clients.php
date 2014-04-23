@@ -70,6 +70,12 @@ class DataObjects_Clients extends DB_DataObject_Pluggable
     }
     /* the code above is auto generated do not remove the tag below */
     ###END_AUTOCODE
+
+    public function can_add_with_parameters($field, $value)
+    {
+      return true;
+    }
+
     public function toHtml()
     {
       return '<strong>'.$this->intitule.'</strong><br />'.$this->adresse.'<br />'.$this->codepostal.' '.$this->ville;

@@ -70,6 +70,12 @@ class DataObjects_Factures extends DB_DataObject_Pluggable
     public $fb_linkOrderFields = array('date DESC');
     public $fb_enumFields = array('ratio_tva');
     public $fb_enumOptions = array('ratio_tva'=>array('0'=>'0%', '0.196'=>'19.6%'));
+
+    public function can_add_with_parameters($field, $value)
+    {
+      return true;
+    }
+
     public function getSingleMethods()
     {
       return array('outpdf'=>array('title'=>'Obtenir le PDF'));
@@ -96,6 +102,7 @@ class DataObjects_Factures extends DB_DataObject_Pluggable
         $this->getPdf()->write($file);
         $tosend[$this->client_id][] = $file;
       }
+      $fwd = Config::getPref('forward_to');
       foreach($tosend as $client_id => $files) {
         $client = DB_DataObject::factory('clients');
         $client->get($client_id);
@@ -105,6 +112,10 @@ class DataObjects_Factures extends DB_DataObject_Pluggable
           $m->addFile($file);
         }
         $m->sendTo($client->email);
+        if($fwd) {
+          $m->sendTo($fwd);
+
+        }
         $this->say(count($files).' fichier(s) envoyé(s) à '.$client->email);
       }
     }

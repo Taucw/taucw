@@ -1,13 +1,13 @@
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <style>
 .header {
   text-align:center;
   font-size:8pt;
   line-height:7pt;padding:0 0 4px 0;margin:0;
   border-top:1pt solid #777777;
-  border-bottom:1pt solid #777777;  
+  border-bottom:1pt solid #777777;
 }
 .headtable th {
 font-size:14pt;
@@ -39,11 +39,19 @@ tr.even {
 .totals td {
   text-align:right;
 }
-.adresses th, .details th {
+.adresses th, .details th, .rib th {
   border:1pt solid #000000;
   background-color:#cccccc;
   text-align:left;
   margin:0;
+}
+.rib th, .rib td { padding: 5px }
+.rib td {
+  border: 0.5pt solid #000;
+}
+.rib td {
+  text-align: center;
+  font-size: 12pt;
 }
 
 .bloc {
@@ -65,7 +73,7 @@ body {
   padding:5px 10px;
 }
 table.listing
-{ 
+{
 page-break-after: always
 }
 </style>
@@ -90,7 +98,7 @@ page-break-after: always
     $pdf->line(16, $y, $w - 16, $y, $color, 0.5);
 
 
-    $text = "<?php echo $title?>";  
+    $text = "<?php echo $title?>";
 
     // Center the text
     $width = Font_Metrics::get_text_width("<?php echo $title?>", $font, $size);
@@ -100,4 +108,3 @@ page-break-after: always
 
   }
   </script>
-

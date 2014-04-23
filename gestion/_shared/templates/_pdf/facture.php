@@ -11,7 +11,7 @@
     </td>
   </tr>
   <tr><td width="25%">Facture num :</td><td width="25%"><?php echo $facture->getRef()?> en EUROS</td></tr>
-  <tr><td width="25%">Ref client :</td><td width="25%"><?php echo $facture->getLink('client_id')->ref?></td></tr>  
+  <tr><td width="25%">Ref client :</td><td width="25%"><?php echo $facture->getLink('client_id')->ref?></td></tr>
 
   <tr><td>Date de facturation :</td><td><?php echo date('d/m/Y',strtotime($facture->date))?></td></tr>
 </table>
@@ -72,8 +72,16 @@
       </h2>
     </td>
   </tr>
-<?php endif?>    
+<?php endif?>
 </table>
-<br />
-<hr />
+<h2>Coordonnées de règlement</h2>
+<table class="rib" width="100%">
+<tr><th width="10%">Iban</th><td width="50%"><?php echo Config::getPref('iban')</td>
+  <td rowspan="2"><strong>Domiciliation:</strong><br />
+    <small><?php echo nl2br(Config::getPref('bank_location'))?></small>
+  </td>
+</tr>
+<tr><th width="10%">Bic</th><td width="35%"><?php echo Config::getPref('bic')</td></tr>
+
+</table>
 <p class="foot"><?php echo nl2br(wordwrap(Config::getPref('facturefoot'),160))?></p>

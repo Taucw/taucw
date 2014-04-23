@@ -70,7 +70,7 @@ $chooseTableOptions = array('modulesToList'=>array(
                               'clients',
                               'factures',
                               'depenses',
-                              'preferences' => array('depenses_cat')
+                              'preferences' => array('preferences', 'depenses_cat')
                               ),
                               'chooseTableTitle'=>"facturation Tau");
 $showTableOptions = & PEAR::getStaticProperty('m_office_showtable', 'options');
