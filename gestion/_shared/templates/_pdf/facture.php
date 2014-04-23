@@ -81,7 +81,7 @@
     <small><?php echo nl2br(Config::getPref('bank_location'))?></small>
   </td>
 </tr>
-<tr><th width="10%">Bic</th><td width="35%"><?php echo Config::getPref('bic')</td></tr>
+<tr><th width="10%">Bic</th><td width="35%"><?php echo Config::getPref('bic')?></td></tr>
 
 </table>
 <p class="foot"><?php echo nl2br(wordwrap(Config::getPref('facturefoot'),160))?></p>
