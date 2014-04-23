@@ -76,7 +76,7 @@
 </table>
 <h2>Coordonnées de règlement</h2>
 <table class="rib" width="100%">
-<tr><th width="10%">Iban</th><td width="50%"><?php echo Config::getPref('iban')</td>
+<tr><th width="10%">Iban</th><td width="50%"><?php echo Config::getPref('iban')?></td>
   <td rowspan="2"><strong>Domiciliation:</strong><br />
     <small><?php echo nl2br(Config::getPref('bank_location'))?></small>
   </td>
